@@ -51,4 +51,8 @@ public class Person {
     public void setBalance(double balance) {
         this.balance = balance;
     }
+
+    public String toString() {
+        return this.name + " " + this.surname;
+    }
 }
