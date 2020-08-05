@@ -31,6 +31,8 @@ public class Driver extends Person {
         return  licenseID;
     }
 
+    // To String
+    @Override
     public String toString(){
         return super.toString() + " and I am a driver";
     }

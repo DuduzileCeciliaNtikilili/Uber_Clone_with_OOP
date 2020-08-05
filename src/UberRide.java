@@ -33,11 +33,11 @@ public class UberRide extends Ride {
 
    
     @ Override
-    public Driver assignDriver() {
+    public Driver assignDriver(String vehicleType) {
 
         Database DB = new Database();
         DB.getDriversArray();
-        Driver[] drivers = DB.getArrayByVehicleType("XL");
+        Driver[] drivers = DB.getArrayByVehicleType(vehicleType);
 
         Random ran = new Random();
         int randomIndex = ran.nextInt(drivers.length-1);
@@ -50,13 +50,17 @@ public class UberRide extends Ride {
     @ Override
     public void completePayment(Driver driver, Passenger passenger) {
 
-        double driverBalance = driver.getCash();
-        driver.setCash(driverBalance + this.price);
-        System.out.println("Adding R" + (int)this.price + " to driver account. \nDriver Account balance: R" + Math.round(driver.getCash() * 100.0) / 100.0);
+        if (passenger.getCash() >= price) {
+            double driverBalance = driver.getCash();
+            driver.setCash(driverBalance + price);
+            System.out.println("Adding R" + (int)price + " to driver account. \nDriver Account balance: R" + Math.round(driver.getCash() * 100.0) / 100.0);
 
-        double passengerBalance = passenger.getCash();
-        passenger.setCash(passengerBalance - this.price);
-        System.out.println("Deducting R" + (int)this.price + " from passenger account. \nPassenger Account balance: R" + Math.round(passenger.getCash() * 100.0) / 100.0);
+            double passengerBalance = passenger.getCash();
+            passenger.setCash(passengerBalance - price);
+            System.out.println("Deducting R" + (int)price + " from passenger account. \nPassenger Account balance: R" + Math.round(passenger.getCash() * 100.0) / 100.0);
+        } else {
+            System.out.println("Insufficient funds. Trip cancelled");
+        }
     }
 
     @ Override

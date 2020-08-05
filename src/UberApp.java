@@ -63,26 +63,25 @@ public class UberApp {
 
         newPassenger = new Passenger(email, name, surname, phoneNumber, accBalance);
 
-        System.out.println("Please enter your starting location");
+        System.out.print("\nPlease enter your starting location: ");
         String startPoint = sc.nextLine();
 
-        System.out.println("Please enter your final destination location");
+        System.out.print("Please enter your final destination location: ");
         String endPoint = sc.nextLine();
 
-        System.out.println("Please select your Uber type: XL or X");
+        System.out.print("Please select your Uber type: XL or X: ");
         String vehicleType = sc.nextLine().toUpperCase();
 
         sc.close();
-        System.out.println("blue");
 
-        System.out.print("\nStarting Location: " + startPoint);
-        System.out.print("End Location: " + endPoint);
-        System.out.print("Uber Type: " + vehicleType.toUpperCase());
+        System.out.println("\nStarting Location: " + startPoint.toUpperCase());
+        System.out.println("End Location: " + endPoint.toUpperCase());
+        System.out.println("Uber Type: " + vehicleType.toUpperCase());
 
 //        UberRide uberRide = new UberRide(startPoint, endPoint, testPassenger);
         UberRide uberRide = new UberRide(startPoint, endPoint, newPassenger);
 
-        Driver assignedDriver = uberRide.assignDriver();
+        Driver assignedDriver = uberRide.assignDriver(vehicleType);
 
         System.out.println("\nCalculating trip cost...");
         uberRide.calculateCost(startPoint, endPoint);
@@ -91,7 +90,7 @@ public class UberApp {
         System.out.println("Assigned driver: " + assignedDriver.getName().substring(0,1).toUpperCase() + assignedDriver.getName().substring(1) + " " + assignedDriver.getSurname().substring(0,1).toUpperCase() + assignedDriver.getSurname().substring(1));
         System.out.println("Assigned car: " + assignedDriver.getCar());
         
-        System.out.println("\nYour ride is complete. Processing payment...");
+        System.out.println("\nProcessing payment...");
 //        uberRide.completePayment(assignedDriver, testPassenger);
         uberRide.completePayment(assignedDriver, newPassenger);
     }

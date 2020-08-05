@@ -36,7 +36,7 @@ public class Database {
             BufferedReader csvReader = new BufferedReader(new FileReader("drivers.csv"));
             String row = null;
             int i = 0;
-            this.drivers = new Driver[countLinesInCSV("drivers.csv")-1];
+            drivers = new Driver[countLinesInCSV("drivers.csv")-1];
             while ((row = csvReader.readLine()) != null) {
                 if(i > 0) {
                     String[] data = row.split(",");
@@ -44,16 +44,16 @@ public class Database {
                     Driver driver = new Driver(car, data[0].trim(), data[1].trim(), data[2].trim(), data[3].trim(), Integer.parseInt(data[4].trim()));
 
                     if(data[8].trim().equals("X")) {
-                        this.numberOfX++;
+                        numberOfX++;
                     }
                     if(data[8].trim().equals("XL")) {
-                        this.numberOfXL++;
+                        numberOfXL++;
                     }
 
-                    this.drivers[i-1] = driver;
+                    drivers[i - 1] = driver;
                 }
+
                 i++;
-                
             }
             csvReader.close();
         }
@@ -64,12 +64,13 @@ public class Database {
 
     public Driver[] getArrayByVehicleType(String vehicleType) {
 
-        Driver[] Xdrivers = new Driver[this.numberOfX];
-        Driver[] XLdrivers = new Driver[this.numberOfXL];
+        Driver[] Xdrivers = new Driver[numberOfX];
+        Driver[] XLdrivers = new Driver[numberOfXL];
 
         int xindex = 0;
         int xlindex = 0;
-        for(int i=0; i<this.drivers.length; i++) {
+
+        for(int i = 0; i < this.drivers.length; i++) {
             if(this.drivers[i].getCar().getVehicleType().equals("X")) {
                 Xdrivers[xindex] = this.drivers[i];
                 xindex++;
