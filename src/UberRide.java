@@ -1,11 +1,12 @@
+import com.google.gson.*;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-import com.google.gson.*;
-import java.util.*;
+import java.util.Iterator;
+import java.util.Random;
 
 public class UberRide extends Ride {
 
@@ -87,7 +88,7 @@ public class UberRide extends Ride {
     }
 
     public double MyGETRequest(String startingPoint, String endingPoint) throws IOException {
-        URL urlForGetRequest = new URL("https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + startingPoint +",SA&destinations=" + endingPoint + ",SA&departure_time=now&key=AIzaSyCs2UIPeA_ygj6aDL45ta9ZdJu3Mo1PIOs");
+        URL urlForGetRequest = new URL("https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + startingPoint +",SA&destinations=" + endingPoint + ",SA&departure_time=now&key=AIzaSyDxCNcf0ZNgmxKNRaEL-t_aDEzW4jca_Fw");
         String readLine = null;
         HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
         conection.setRequestMethod("GET");
