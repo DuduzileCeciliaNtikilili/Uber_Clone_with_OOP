@@ -1,41 +1,21 @@
-// Super Person class for driver and passenger
-
 public class Person {
 
-    // Fields:
+    //Fields:
     private String name;
     private String surname;
-    private String phoneNumber;
+    private String phone_number;
     private double balance;
 
-    // Constructor:
-    Person (String name, String surname, String phoneNumber, double balance) {
+    //Constructor
+    Person(String name, String surname, String phone_number, double balance) {
         this.name = name;
         this.surname = surname;
-        this.phoneNumber = phoneNumber;
+        this.phone_number = phone_number;
         this.balance = balance;
     }
 
-    // Methods:
-
-    // Getters:
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public double getBalance() {
-        return balance;
-    }
-
-    // Setters:
+    //Methods:
+    //Setters
     public void setName(String name) {
         this.name = name;
     }
@@ -44,15 +24,32 @@ public class Person {
         this.surname = surname;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhoneNumber(String phone_number) {
+        this.phone_number = phone_number;
     }
 
-    public void setBalance(double balance) {
+    public void setCash(double balance) {
         this.balance = balance;
     }
 
+    //Getters
+    public String getName(){
+        return name;
+    }
+
+    public String getSurname(){
+        return surname;
+    }
+    
+    public String getPhoneNumber(){
+        return phone_number;
+    }
+    
+    public double getCash(){
+        return balance;
+    }
+
     public String toString() {
-        return this.name + " " + this.surname;
+        return name + " " + surname;
     }
 }

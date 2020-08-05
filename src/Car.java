@@ -1,5 +1,5 @@
 public class Car implements Vehicle {
-    
+
     // Fields:
     String numberPlate;
     String colour;
@@ -7,35 +7,42 @@ public class Car implements Vehicle {
     String type;
     double base_rate;
 
-    // Constructor:
+    //Constructor
     Car(String numberPlate, String colour, String model, String type) {
         this.numberPlate = numberPlate;
         this.colour = colour;
         this.model = model;
         this.type = type;
-        if (type.equals("XL")) {
+        if(type.equals("XL")) {
             this.base_rate = 15.00;
         } else {
             this.base_rate = 10.00;
         }
     }
 
-    // Methods:
-    @Override
+    //Methods:
+
+    // Getters:
     public String getNumberPlate() {
-        return numberPlate;
-    };
+        return this.numberPlate;
+    }
 
-    @Override
-    public String getcolour() {
-        return colour;
-    };
+    public double getBaseRate() {
+        return this.base_rate;
+    }
 
-    @Override
+    public String getColor() {
+        return this.colour;
+    }
     public String getModel() {
-        return model;
-    };
+        return this.model;
+    }
+
+    public String getVehicleType() {
+        return this.type;
+    }
 
     public String toString() {
-        return this.model + " car of " + this.colour + " colour, with number plate " + this.numberPlate;    }
+        return this.model + " car of " + this.colour + " colour, with number plate: " + this.numberPlate;
+    }
 }

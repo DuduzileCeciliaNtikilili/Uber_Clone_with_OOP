@@ -1,27 +1,24 @@
 public class Passenger extends Person {
 
-    // Fields:
+    // Field:
     String email;
 
-    // Constructor:
-    Passenger(String name, String surname, String phoneNumber, double balance, String email) {
-        super(name, surname, phoneNumber, balance);
+    //Constructor:
+    Passenger(String email, String name, String surname,String phone_number, int balance){
+        super(name,surname,phone_number, balance);
         this.email = email;
     }
 
-    // Methods:
-    // Setters:
-    public void setEmail(String email) {
-        this.email = email;
+    //Methods
+    public void setEmail(String email){
+        this.email  = email;
     }
 
-    // Getters:
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
-    @Override
-    public String toString() {
+    public String toString(){
         return super.toString() + " and I am a passenger";
     }
 }

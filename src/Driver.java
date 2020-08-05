@@ -1,37 +1,37 @@
 public class Driver extends Person {
 
-    // Fields:
+    //Fields:
     Car car;
     String licenseID;
-
-    // Constructor:
-    public Driver(String name, String surname, String phoneNumber, double balance, String licenseId) {
-        super(name, surname, phoneNumber, balance);
-        this.licenseID = licenseId;
-        this.licenseID = licenseId;
+    
+    //Constructor
+    Driver(Car car, String licenseID, String name, String surname,String phone_number, int balance){
+        super(name,surname,phone_number,balance);   
+        this.car = car;
+        this.licenseID = licenseID;    
     }
 
-    // Methods:
-    // Setters:
-    public void setCar(Car car) {
+    //Methods:
+
+    //Setters
+    public void setCar(Car car){
         this.car = car;
     }
 
-    public void setLicenseID(String licenseID) {
+    public void setlicenseID(String licenseID){
         this.licenseID = licenseID;
     }
 
     // Getters:
-    public Car getCar() {
+    public Car getCar(){
         return car;
     }
 
-    public String getLicenseID() {
-        return licenseID;
+    public String getlicenseID(){
+        return  licenseID;
     }
 
-    @Override
-    public String toString() {
+    public String toString(){
         return super.toString() + " and I am a driver";
     }
 }
