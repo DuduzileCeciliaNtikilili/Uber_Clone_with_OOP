@@ -23,32 +23,26 @@ public class Car implements Vehicle {
     //Methods:
 
     // Getters:
-    @Override
     public String getNumberPlate() {
-        return numberPlate;
+        return this.numberPlate;
     }
 
     public double getBaseRate() {
-        return base_rate;
+        return this.base_rate;
     }
 
-    @Override
     public String getColor() {
-        return colour;
+        return this.colour;
     }
-
-    @Override
     public String getModel() {
-        return model;
+        return this.model;
     }
 
     public String getVehicleType() {
-        return type;
+        return this.type;
     }
 
-    // To String:
-    @Override
     public String toString() {
-        return colour.toUpperCase() + " " + model.toUpperCase() + ", with number plate: " + numberPlate.toUpperCase();
+        return this.model + " car of " + this.colour + " colour, with number plate: " + this.numberPlate;
     }
 }

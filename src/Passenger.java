@@ -9,20 +9,15 @@ public class Passenger extends Person {
         this.email = email;
     }
 
-    //Methods:
-
-    // Setter:
+    //Methods
     public void setEmail(String email){
         this.email  = email;
     }
 
-    // Getter:
     public String getEmail() {
         return this.email;
     }
 
-    // To String
-    @Override
     public String toString(){
         return super.toString() + " and I am a passenger";
     }

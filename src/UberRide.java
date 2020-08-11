@@ -1,12 +1,11 @@
-import com.google.gson.*;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Iterator;
-import java.util.Random;
+
+import com.google.gson.*;
+import java.util.*;
 
 public class UberRide extends Ride {
 
@@ -33,11 +32,11 @@ public class UberRide extends Ride {
 
    
     @ Override
-    public Driver assignDriver(String vehicleType) {
+    public Driver assignDriver() {
 
         Database DB = new Database();
         DB.getDriversArray();
-        Driver[] drivers = DB.getArrayByVehicleType(vehicleType);
+        Driver[] drivers = DB.getArrayByVehicleType("XL");
 
         Random ran = new Random();
         int randomIndex = ran.nextInt(drivers.length-1);
@@ -50,17 +49,13 @@ public class UberRide extends Ride {
     @ Override
     public void completePayment(Driver driver, Passenger passenger) {
 
-        if (passenger.getCash() >= price) {
-            double driverBalance = driver.getCash();
-            driver.setCash(driverBalance + price);
-            System.out.println("Adding R" + (int)price + " to driver account. \nDriver Account balance: R" + Math.round(driver.getCash() * 100.0) / 100.0);
+        double driverBalance = driver.getCash();
+        driver.setCash(driverBalance + this.price);
+        System.out.println("Adding R" + (int)this.price + " to driver account. \nDriver Account balance: R" + Math.round(driver.getCash() * 100.0) / 100.0);
 
-            double passengerBalance = passenger.getCash();
-            passenger.setCash(passengerBalance - price);
-            System.out.println("Deducting R" + (int)price + " from passenger account. \nPassenger Account balance: R" + Math.round(passenger.getCash() * 100.0) / 100.0);
-        } else {
-            System.out.println("Insufficient funds. Trip cancelled");
-        }
+        double passengerBalance = passenger.getCash();
+        passenger.setCash(passengerBalance - this.price);
+        System.out.println("Deducting R" + (int)this.price + " from passenger account. \nPassenger Account balance: R" + Math.round(passenger.getCash() * 100.0) / 100.0);
     }
 
     @ Override
@@ -92,7 +87,7 @@ public class UberRide extends Ride {
     }
 
     public double MyGETRequest(String startingPoint, String endingPoint) throws IOException {
-        URL urlForGetRequest = new URL("https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + startingPoint +",SA&destinations=" + endingPoint + ",SA&departure_time=now&key=AIzaSyDxCNcf0ZNgmxKNRaEL-t_aDEzW4jca_Fw");
+        URL urlForGetRequest = new URL("https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + startingPoint +",SA&destinations=" + endingPoint + ",SA&departure_time=now&key=AIzaSyCs2UIPeA_ygj6aDL45ta9ZdJu3Mo1PIOs");
         String readLine = null;
         HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
         conection.setRequestMethod("GET");

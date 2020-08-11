@@ -15,8 +15,7 @@ public class Person {
     }
 
     //Methods:
-
-    //Setters:
+    //Setters
     public void setName(String name) {
         this.name = name;
     }
@@ -50,8 +49,6 @@ public class Person {
         return balance;
     }
 
-    // To String
-    @Override
     public String toString() {
         return name + " " + surname;
     }
